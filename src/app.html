@@ -18,12 +18,16 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <!-- iterate through the routes (here, only routes with nav: true will be in the router.navigation array) -->
+        <!-- classes can be dynamically controlled via expressions -->
         <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
           <a href.bind="row.href">${row.title}</a>
         </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <!-- adds/remove li based on bound expression -->
+        <!-- router.isNavigating is updated dynamically -->
         <li class="loader" if.bind="router.isNavigating">
           <i class="fa fa-spinner fa-spin fa-2x"></i>
         </li>
@@ -32,7 +36,8 @@
   </nav>
 
   <div class="page-host">
+    <!--  -->
     <router-view></router-view>
   </div>
-  
+
 </template>

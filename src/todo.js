@@ -1,12 +1,13 @@
+import {inject} from 'aurelia-framework'; // the inject container for Aurelia
+import {todoService} from './todoService'; // import todo service
+
+@inject(todoService)
 export class Todo {
 
-  todo = {
-    desc: '',
-    date: '',
-    completed: false
-  };
-
-  todos = [];
+  constructor(todoService) {
+    this.todo = todoService.todo;
+    this.todos = todoService.todos;
+  }
 
   addTodo() {
     this.todos.push({
