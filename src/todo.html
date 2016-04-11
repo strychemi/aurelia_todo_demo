@@ -1,0 +1,39 @@
+<template>
+
+  <div class="container">
+    <h1>Todos</h1>
+
+    <form submit.trigger="addTodo()">
+      <div>
+        <label>Todo Description</label>
+        <input type="text" value.bind="todo.desc" class="form-control">
+      </div>
+      <div>
+        <label>Todo Date</label>
+        <input type="text" value.bind="todo.date" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Todo</button>
+    </form>
+
+    <table class="table table-striped">
+      <tr>
+        <th>Task</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Delete?</th>
+      </tr>
+      <tr repeat.for="todo of todos">
+        <td>
+          <input type="checkbox" checked.bind="todo.completed">
+          ${todo.desc}
+        </td>
+        <td>${todo.date}</td>
+        <td>${todo.completed}</td>
+        <td>
+          <button click.trigger="deleteTodo(todo)">Delete</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+</template>

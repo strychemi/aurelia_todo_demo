@@ -1,25 +1,17 @@
 export class App {
+  // configureRouter callback
+  configureRouter(config, router) {
+    config.title = 'Aurelia Demo';
+    config.map([
+      //route => actual url route
+      //name => used in code to generate url for route
+      //moduleId => path to component to render
+      //nav => true if you want to generate UI components and add to nav model
+      //title => optional parameter to set document title
+      { route: ['', 'welcome'], name: 'welcome', moduleId: './welcome', nav: true, title:'Welcome' },
+      { route: 'todo', name: 'todo', moduleId: './todo', nav: true, title:'Todo' }
+    ]);
 
-  todo = {
-    desc: '',
-    date: '',
-    completed: false
-  };
-
-  todos = [];
-
-  addTodo() {
-    this.todos.push({
-      desc: this.todo.desc,
-      date: this.todo.date,
-      completed: false
-    });
-    this.todo.desc = '';
-    this.todo.date = '';
-    this.todo.completed = false;
-  }
-
-  deleteTodo(todo) {
-    this.todos.splice(this.todos.indexOf(todo), 1);
+    this.router = router;
   }
 }
