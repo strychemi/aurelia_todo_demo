@@ -1,6 +1,8 @@
 import {inject} from 'aurelia-framework'; // the inject container for Aurelia
-import {todoService} from './todoService'; // import todo service
+import {todoService} from './todoService'; // import todo service (persistent data)
 
+// dependcy injection via inject decorator
+// passes todoService instance directly to constructor
 @inject(todoService)
 export class Todo {
 
