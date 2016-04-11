@@ -7,3 +7,7 @@ Multiple Web Components
 Routing
 Data Persistence via Dependency Injection
 Custom Elements (work in progress)
+
+To run:
+
+Download and run index.html in Firefox.
